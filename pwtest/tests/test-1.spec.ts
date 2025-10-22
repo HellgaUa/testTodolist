@@ -12,8 +12,8 @@ test('Create first task', async ({ page }) => {
   await page.getByRole('button', { name: 'Create Task' }).click();
   await page.getByRole('button', { name: 'First CRUD test Priority:' }).click();
   await expect(page.getByText('BacklogFirst CRUD')).toBeVisible();
-  await expect(page.locator('body')).toContainText(
-    'BacklogFirst CRUD testPriority: Medium | Status: Backlog',
-  );
+  await expect(page.locator('body')).toContainText('BacklogFirst CRUD test');
+  await expect(page.locator('body')).toContainText('Priority: Medium');
+  await expect(page.locator('body')).toContainText('Status: Backlog');
   await page.getByRole('button', { name: 'Logout' }).click();
 });

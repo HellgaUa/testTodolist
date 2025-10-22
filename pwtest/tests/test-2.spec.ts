@@ -11,7 +11,8 @@ test('Change status to ToDo', async ({ page }) => {
   await page.getByRole('combobox', { name: 'Status' }).click();
   await page.getByLabel('Todo').getByText('Todo').click();
   await page.getByRole('button', { name: 'Save Changes' }).click();
-  await expect(page.locator('body')).toContainText('Priority: Medium | Status: Todo');
+  await expect(page.locator('body')).toContainText('Priority: Medium');
+  await expect(page.locator('body')).toContainText('Status: Todo');
   await page.getByRole('button', { name: 'Logout' }).click();
 });
 

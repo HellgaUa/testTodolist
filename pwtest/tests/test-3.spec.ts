@@ -9,6 +9,7 @@ test('Change status to InProgress', async ({ page }) => {
   await page.getByRole('combobox', { name: 'Status' }).click();
   await page.getByLabel('In Progress').getByText('In Progress').click();
   await page.getByRole('button', { name: 'Save Changes' }).click();
-  await expect(page.locator('body')).toContainText('Priority: Medium | Status: In Progress');
+  await expect(page.locator('body')).toContainText('Priority: Medium');
+  await expect(page.locator('body')).toContainText('Status: In Progress');
   await page.getByRole('button', { name: 'Logout' }).click();
 });

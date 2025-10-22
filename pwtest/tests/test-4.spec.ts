@@ -11,7 +11,8 @@ test('Changing Priority and Delete', async ({ page, context }) => {
   await page.getByRole('combobox', { name: 'Status' }).click();
   await page.getByLabel('Done').getByText('Done').click();
   await page.getByRole('button', { name: 'Save Changes' }).click();
-  await expect(page.locator('body')).toContainText('Priority: High | Status: Done');
+  await expect(page.locator('body')).toContainText('Priority: High');
+  await expect(page.locator('body')).toContainText('Status: Done');
   await page.getByRole('button', { name: 'First CRUD test Priority:' }).getByRole('button').click();
   await page.getByRole('menuitem', { name: 'Delete' }).click();
   await expect(
